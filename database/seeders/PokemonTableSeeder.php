@@ -9,9 +9,9 @@ class PokemonTableSeeder extends Seeder
 {
     public function run()
     {
-        \DB::table('pokemon')->delete();
+        DB::table('pokemon')->delete();
 
-        \DB::table('pokemon')->insert(array (
+        DB::table('pokemon')->insert(array (
             0 =>
             array (
                 'name' => 'Bulbasaur',
@@ -6513,7 +6513,7 @@ class PokemonTableSeeder extends Seeder
                 'photo' => 'public/simipour.png',
             ),
         ));
-        \DB::table('pokemon')->insert(array (
+        DB::table('pokemon')->insert(array (
             0 =>
             array (
                 'name' => 'Munna',
