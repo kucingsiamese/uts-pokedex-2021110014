@@ -11,6 +11,8 @@
                 <th>Species</th>
                 <th>Primary Type</th>
                 <th>Power</th>
+                <th>Legendary</th>
+                <th>Photo</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,6 +24,16 @@
                 <td>{{ $pokemon->species }}</td>
                 <td>{{ $pokemon->primary_type }}</td>
                 <td>{{ $pokemon->hp + $pokemon->attack + $pokemon->defense }}</td>
+                <td>{{ $pokemon->is_legendary ? 'Yes' : 'No' }}</td>
+                <td>
+                    @if($pokemon->photo)
+                        <a href="{{ route('pokemon.show', $pokemon->id) }}">
+                            <img src="{{ asset('storage/' . $pokemon->photo) }}" alt="{{ $pokemon->name }}" style="width: 100px; height: auto;">
+                        </a>
+                    @else
+                        <span>No photo</span>
+                    @endif
+                </td>
                 <td>
                     <a href="{{ route('pokemon.edit', $pokemon->id) }}" class="btn btn-warning">Edit</a>
                     <form action="{{ route('pokemon.destroy', $pokemon->id) }}" method="POST" style="display:inline;">
