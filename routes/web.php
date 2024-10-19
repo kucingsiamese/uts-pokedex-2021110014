@@ -5,6 +5,8 @@ use App\Http\Controllers\PokedexController;
 use Illuminate\Container\Attributes\Auth;
 
 Route::resource('pokemon', PokemonController::class);
+Route::resource('pokemon', PokemonController::class)->middleware(middleware: 'auth');
+Route::get(url: '/pokemons/create', action: [PokemonController::class]);
 
 //Auth::routes();
 

@@ -12,6 +12,7 @@ class PokemonController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except(['show']);
+        $this->middleware(middleware: 'auth')->only(methods: 'login');
     }
 
      public function index()
